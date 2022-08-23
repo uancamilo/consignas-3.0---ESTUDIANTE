@@ -38,25 +38,38 @@ cambiarTema.addEventListener("click", alternarColorTema);
 function obtenerDatosDelUsuario() {
 	/* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-	nombre = prompt("Nombre");
-	edad = parseInt(prompt("Año de nacimiento"));
-	ciudad = prompt("En que ciudad vives");
-	interesPorJs = confirm("Te interesa javaScript");
-	
-	console.log(datosPersona);
+	const fechaActual = new Date(),
+		anio = parseInt(fechaActual.getFullYear()),
+		nombre = prompt("Ingrese su nombre"),
+		edad = parseInt(prompt("Año de nacimiento")),
+		ciudad = prompt("En que ciudad vives"),
+		interesPorJs = confirm("Te interesa javaScript"),
+		edadAcutal = anio - edad;
 
 	datosPersona.nombre = nombre;
-	datosPersona.edad = edad;
+	datosPersona.edad = edadAcutal;
 	datosPersona.ciudad = ciudad;
-	datosPersona.interesPorJs = interesPorJs;
+	datosPersona.interesPorJs = (interesPorJs === true ? "Si" : "No");
 
-	console.log(datosPersona);
+	return datosPersona;
 }
 
 function renderizarDatosUsuario() {
 	/* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
 	obtenerDatosDelUsuario();
 	/* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
+
+	console.log(datosPersona);
+
+	const nuevoNombre = document.getElementById("nombre"),
+		nuevaEdad = document.getElementById("edad"),
+		nuevaCiudad = document.getElementById("ciudad"),
+		interes = document.getElementById("javascript");
+
+	nuevoNombre.innerText = datosPersona.nombre;
+	nuevaEdad.innerText = datosPersona.edad;
+	nuevaCiudad.innerText = datosPersona.ciudad;
+	interes.innerText = datosPersona.interesPorJs;
 }
 
 function recorrerListadoYRenderizarTarjetas() {
