@@ -49,17 +49,13 @@ function obtenerDatosDelUsuario() {
 	datosPersona.nombre = nombre;
 	datosPersona.edad = edadAcutal;
 	datosPersona.ciudad = ciudad;
-	datosPersona.interesPorJs = (interesPorJs === true ? "Si" : "No");
-
-	return datosPersona;
+	datosPersona.interesPorJs = interesPorJs === true ? "Si" : "No";
 }
 
 function renderizarDatosUsuario() {
 	/* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
 	obtenerDatosDelUsuario();
 	/* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
-
-	console.log(datosPersona);
 
 	const nuevoNombre = document.getElementById("nombre"),
 		nuevaEdad = document.getElementById("edad"),
@@ -74,6 +70,24 @@ function renderizarDatosUsuario() {
 
 function recorrerListadoYRenderizarTarjetas() {
 	/* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
+
+	const card = document.getElementById("fila");
+
+	function tarjeta() {
+		listado.forEach((materias) => {
+			card.innerHTML += `
+			<div class="caja">
+				<img src="${materias.imgUrl}">
+				<p class="lenguajes">${materias.lenguajes}</p>
+				<p class="bimestre">${materias.bimestre}</p>
+			</div>
+			`;
+		});
+	}
+
+	tarjeta();
+
+	materiasBtn.disabled = true;
 }
 
 function alternarColorTema() {
