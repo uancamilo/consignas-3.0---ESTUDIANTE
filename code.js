@@ -95,3 +95,11 @@ function alternarColorTema() {
 }
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
+
+window.addEventListener("keydown", tecla);
+
+function tecla(key) {
+	if (key.key == "f" || key.key == "F") {
+		document.getElementById("sobre-mi").classList.remove('oculto');
+	}
+}
