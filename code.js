@@ -92,6 +92,9 @@ function recorrerListadoYRenderizarTarjetas() {
 
 function alternarColorTema() {
 	/* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
+
+	const cambio = document.getElementById("sitio");
+	cambio.classList.toggle("dark");
 }
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
@@ -100,6 +103,6 @@ window.addEventListener("keydown", tecla);
 
 function tecla(key) {
 	if (key.key == "f" || key.key == "F") {
-		document.getElementById("sobre-mi").classList.remove('oculto');
+		document.getElementById("sobre-mi").classList.remove("oculto");
 	}
 }
